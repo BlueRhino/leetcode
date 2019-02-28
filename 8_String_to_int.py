@@ -1,25 +1,26 @@
 class Solution(object):
-    def my_atoi(self, str):
+    @staticmethod
+    def my_atoi(ss):
         """
-        :type str: str
+        :type ss: str
         :rtype: int
         """
         int_max = 2147483647
         int_min = -2147483648
         index = 0
-        while index < len(str) and str[index] == ' ':
+        while index < len(ss) and ss[index] == ' ':
             index += 1
         flag = 1
-        if index < len(str) and str[index] == '-':
+        if index < len(ss) and ss[index] == '-':
             index += 1
             flag = -1
-        elif index < len(str) and str[index] == '+':
+        elif index < len(ss) and ss[index] == '+':
             index += 1
         res = 0
-        while index < len(str):
-            if str[index] < '0' or str[index] > '9':
+        while index < len(ss):
+            if ss[index] < '0' or ss[index] > '9':
                 return flag * res
-            digit = ord(str[index]) - ord('0')
+            digit = ord(ss[index]) - ord('0')
             if flag == 1 and res * 10 + digit > int_max:
                 return int_max
             if flag == -1 and res * 10 + digit > -int_min:

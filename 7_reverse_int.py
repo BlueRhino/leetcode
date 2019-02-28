@@ -1,5 +1,6 @@
 class Solution(object):
-    def reverse(self, x):
+    @staticmethod
+    def reverse(x):
         """
         :type x: int
         :rtype: int

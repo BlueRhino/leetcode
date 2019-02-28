@@ -1,7 +1,7 @@
 class Solution:
     @staticmethod
-    def licenseKeyFormatting(S: 'str', K: 'int') -> 'str':
-        s, k = S, K
+    def license_key_formatting(s: 'str', k: 'int') -> 'str':
+        s, k = s, k
         sr = s[::-1]
         i, total = 0, 0
         res = []
@@ -22,4 +22,4 @@ class Solution:
 
 
 if __name__ == '__main__':
-    print(Solution.licenseKeyFormatting('5F3Z-2e-9-w', 4))
+    print(Solution.license_key_formatting('5F3Z-2e-9-w', 4))
