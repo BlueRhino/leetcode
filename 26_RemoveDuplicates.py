@@ -5,19 +5,19 @@ class Solution:
     @staticmethod
     def remove_duplicates(nums: List[int]) -> int:
         length = len(nums)
+        if length <= 1:
+            return length
         i, j = 0, 1
-        count = 0
-        while i < length:
+        while i < length and j < length:
             a = nums[i]
             while j < length:
                 if nums[j] != a:
-                    count += j - i
+                    nums[i + 1] = nums[j]
                     break
                 else:
                     j += 1
-            nums[i+1:] = nums[j:]
             i += 1
-        return length - count
+        return i
 
 
 if __name__ == '__main__':
