@@ -74,7 +74,31 @@ class Solution2(object):
         len_list.sort(reverse=True)
         return len_list[0]
 
+# 优化了一下，一次遍历直接搞定
+# 执行结果：通过显示详情执行用时：60 ms, 在所有 Python3 提交中击败了96.99%的用户
+# 内存消耗：18.7 MB, 在所有 Python3 提交中击败了5.88%的用户
+# 效果还可以
+class Solution3(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if not s:
+            return 0
+        all_res = []
+        current_begin = 0
+        for i in range(len(s)):
+            tmp = s[current_begin:i]
+            if s[i] in tmp:
+                all_res.append(tmp)
+                current_begin += (tmp.index(s[i]) + 1)
+        all_res.append(s[current_begin:])
+        len_list = [len(x) for x in all_res]
+        len_list.sort(reverse=True)
+        return len_list[0]
+
 
 if __name__ == '__main__':
-    res = Solution2().lengthOfLongestSubstring('abcabcbb')
+    res = Solution3().lengthOfLongestSubstring('au')
     print(res)
